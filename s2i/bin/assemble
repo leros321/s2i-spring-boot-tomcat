@@ -1,0 +1,34 @@
+#!/bin/bash -e
+#
+# S2I assemble script for the 's2i-spring-boot-tomcat-build' image.
+# The 'assemble' script builds your application source so that it is ready to run.
+#
+# For more information refer to the documentation:
+#	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
+#
+
+# If the 's2i-spring-boot-tomcat-build' assemble script is executed with the '-h' flag, print the usage.
+if [[ "$1" == "-h" ]]; then
+	exec /usr/libexec/s2i/usage
+fi
+
+# Restore artifacts from the previous build (if they exist).
+#
+if [ -d "/opt/s2i/destination/artifacts/" ]; then
+  echo "---> Restoring build artifacts..."
+  if [ -d "/opt/s2i/destination/artifacts/.m2/" ]; then
+    echo "---> Restoring maven artifacts..."
+    mv /opt/s2i/destination/artifacts/.m2/repository $HOME/.m2
+  fi
+fi
+
+
+echo "---> Building and installing application from source..."
+
+cd /opt/s2i/destination/src/
+
+# TODO: Add build steps for your application, eg npm install, bundle install, pip install, etc.
+
+mvn --batch-mode -Dskip-build-javascript-resources=false package
+
+cp target/*.jar /opt/java/

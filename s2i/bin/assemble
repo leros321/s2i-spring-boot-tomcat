@@ -25,7 +25,8 @@ fi
 
 echo "---> Building and installing application from source..."
 
-cd /opt/s2i/destination/src/
+#cd /opt/s2i/destination/src/
+cd /home/lubomir/tmp/src/ 
 
 # TODO: Add build steps for your application, eg npm install, bundle install, pip install, etc.
 mvn dependency:purge-local-repository

@@ -8,13 +8,7 @@
   </mirrors>
 
   <proxies>
-    <proxy>
-      <active>true</active>
-      <protocol>https</protocol>
-      <host>spbsrv-proxy2.t-systems.ru</host>
-      <port>3128</port>
-      <nonProxyHosts>localhost</nonProxyHosts>
-    </proxy>
+   <!-- ### configured http proxy ### -->
   </proxies>
 
   <profiles>

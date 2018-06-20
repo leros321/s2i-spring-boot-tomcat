@@ -28,7 +28,7 @@ echo "---> Building and installing application from source..."
 cd /opt/s2i/destination/src/
 
 # TODO: Add build steps for your application, eg npm install, bundle install, pip install, etc.
-mvn dependency:purge-local-repository
-mvn --batch-mode -Dhttp.proxyHost=spbsrv-proxy2.t-systems.ru -Dhttp.proxyPort=3128 -Dhttps.proxyHost=spbsrv-proxy2.t-systems.ru -Dhttps.proxyPort=3128 -Dskip-build-javascript-resources=false package
+
+mvn --batch-mode -Dskip-build-javascript-resources=false package
 
 cp target/*.jar /opt/java/

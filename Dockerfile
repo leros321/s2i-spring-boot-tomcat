@@ -8,14 +8,14 @@ FROM openshift/base-centos7
 # ENV BUILDER_VERSION 1.0
 
 # TODO: Set labels used in OpenShift to describe the builder image
-LABEL io.k8s.description="Platform for building s2i-spring-boot-tomcat-build image" \
-      io.k8s.display-name="builder x.y.z" \
-      io.openshift.expose-services="8080:http" \
-      io.openshift.tags="builder,x.y.z,etc." \
-      io.openshift.s2i.destination="/opt/s2i/destination" \
-      # this label tells s2i where to find its mandatory scripts
-      # (run, assemble, save-artifacts)
-      io.openshift.s2i.scripts-url="image:///usr/libexec/s2i"
+#LABEL io.k8s.description="Platform for building s2i-spring-boot-tomcat-build image" \
+#      io.k8s.display-name="builder x.y.z" \
+#      io.openshift.expose-services="8080:http" \
+#      io.openshift.tags="builder,x.y.z,etc." \
+#      io.openshift.s2i.destination="/opt/s2i/destination" \
+#      # this label tells s2i where to find its mandatory scripts
+#      # (run, assemble, save-artifacts)
+#      io.openshift.s2i.scripts-url="image:///usr/libexec/s2i"
 
 ARG OPENJDK_VERSION=1.8.0
 ARG MAVEN_VERSION=3.3.9
